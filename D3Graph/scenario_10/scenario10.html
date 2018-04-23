@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="chroma.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+<body class = 'dark-2'>
+
+<div class="jumbotron text-center dark-3">
+  <h1>Topological Data Analysis</h1>
+  <h2>A (Fahion!) MNIST example</h2> 
+  <h3>Scenario 10</h3> 
+</div>
+
+<div class = "margined">
+	<div class="row">
+	    <div class="col-5">
+	    	<div class="row">
+	    		<div class="col-1"></div>
+	    		<div class="col-4">
+					<h2><span class="badge badge-warning">Representation:</span></h2>		
+					<h3><span class="badge badge-default">R784</span> </h3>		   
+	    		</div>
+	    		<div class="col-3">
+					<h2><span class="badge badge-warning">Distance:</span></h2>		
+					<h3><span class="badge badge-default">Complete</span> </h3>		   
+	    		</div>
+	    		<div class="col-3">
+					<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+					<h3><span class="badge badge-default">t-SNE</span> </h3>		   
+	    		</div>
+	    		<div class="col-1"></div>
+	    	</div>
+	    </div>
+	    <div id = 'labels' class="col-2" style="visibility: hidden;">
+		   <h2><span class="badge badge-warning">Labels:</span></h2>		
+		   <span class="badge" style="background: red;">T-Shirt</span>		   		   
+		   <span class="badge" style="background: greenyellow;">Trouser</span>
+		   <span class="badge" style="background: blue;">Pullover</span>
+		   <span class="badge" style="background: pink;">Dress</span>
+		   <span class="badge" style="background: yellow;">Coat</span>
+		   <span class="badge" style="background: orange;">Sandal</span>
+		   <span class="badge" style="background: lightcyan;">Shirt</span>
+		   <span class="badge" style="background: darkolivegreen;">Sneaker</span>
+		   <span class="badge" style="background: brown;">Bag</span>
+		   <span class="badge" style="background: purple;">Ankle Boot</span>
+	    </div>		    
+	    <div id = 'focus_buttons' class="col-5" style="visibility: hidden;">
+	    <div class="row">
+	    	<div class="col-4""></div>
+	    	<div class="col-4"">
+		    	<h2><span class="badge badge-warning">Node Shape</span></h2>
+			   <button class = 'btn-lg' onclick="draw_images()">images</button>
+			   <button class = 'btn-lg' onclick="draw_points()">points</button>
+			</div>   
+			<div class="col-4"">
+				<h2><span class="badge badge-warning">Distribution</span></h2>
+			   <button class = 'btn-lg' onclick="tsne()">tsne</button>
+			   <button class = 'btn-lg' onclick="pca()">pca</button>
+			</div>			   
+		</div>	    
+	    </div>	
+	</div>
+</div>
+
+<div class = "margined">
+	<div class="row">
+
+		<div class="col-2">
+		
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-10">
+					<h2><span class="badge badge-warning">Color</span></h2>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-8">
+					<button class = 'btn-lg' onclick="same_color()">No Color</button>
+				</div>
+				<div class="col-1"></div>				
+			</div>
+
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-8">
+					<button class = 'btn-lg' onclick="centrality()">Centrality</button>
+				</div>
+				<div class="col-1"></div>				
+			</div>
+			
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-8">
+					<button class = 'btn-lg' onclick="by_label()">By Label</button>
+				</div>
+				<div class="col-1"></div>				
+			</div>
+
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-8">
+					<button class = 'btn-lg' onclick="by_cluster()">By Cluster</button>
+				</div>
+				<div class="col-"></div>				
+			</div>
+
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-10">
+					<h2><span class="badge badge-warning">Size</span></h2>
+				</div>				
+			</div>
+
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-8">
+					<button class = 'btn-lg' onclick="same_size()">Same Size</button>
+				</div>
+				<div class="col-1"></div>				
+			</div>
+
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-8">
+					<button class = 'btn-lg' onclick="agglomerate()">Agglomerate</button>
+				</div>
+				<div class="col-1"></div>				
+			</div>
+
+			<hr>
+
+			<div class="row">
+		    	<div class="col-1"></div>
+				<div id = 'single_focus_col' class="col-10" style="visibility: hidden;"">
+						<h2><span class="badge badge-warning">Zoom</span></h2>
+						<h3><span id = 'current_label' class="badge badge-default">Label: </span> </h3>
+				    	<img id = 'single_focus' class="center-block">
+				    </div>
+				<div class="col-1"></div>
+		    </div>
+
+
+		</div>
+	    <div class="col-5" id = 'general_graph_col' >
+	    	<div id = 'general_graph' class="chart-container dark-1"></div>
+	    </div>
+
+	    <div class="col-5">
+	    	<div class="row">
+			    <div id = 'focus_layout_col' class="col-12">
+			    	<div id = 'focus_layout' class="chart-container dark-2"></div>
+			    </div>
+	    	</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="script2.js"></script>
+
+
+
+

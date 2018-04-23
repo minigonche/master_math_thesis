@@ -1,0 +1,60 @@
+/* Styles go here */
+
+.chart-container
+{
+	width: 100%;
+	margin: 10px !important;
+
+}
+
+.dark-1
+{
+	background-color: #212121 !important;
+}
+
+.dark-2
+{
+	background-color: #424242 !important;
+}
+
+.dark-3
+{
+	background-color: #616161 !important;
+}
+
+.container
+{
+	margin : 10px !important;
+}
+
+
+img
+{
+	margin: 10px;
+}
+
+
+.badge-warning
+{
+	background-color: #212121 !important;
+	color : #cccccc !important;
+
+
+}
+
+.badge-default
+{
+	color : #aaaaaa !important;
+}
+
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+  border-style: solid none;
+  border-width: 2px 0;
+  margin: 18px 0;
+}

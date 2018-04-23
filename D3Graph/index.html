@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="chroma.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+<body class = 'dark-2'>
+
+<div class="jumbotron text-center dark-3">
+  <h1>Topological Data Analysis</h1>
+  <h2>A MNIST example</h2> 
+</div>
+
+<div class = "margined">
+	<div class="row">
+		<div class="col-2"></div>
+		<!-- Scenario 1-->
+	    <div class="col-3">
+	    	<div class="row">
+	    		<!-- Scenario 1-->
+	    		<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 1</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">RP500</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Approximation</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">t-SNE</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_1/scenario1.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+		<!-- Scenario 2-->
+	    <div class="col-3">
+	    	<div class="row">
+
+	    		<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 2</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">RP500</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Complete</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">t-SNE</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_2/scenario2.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+	   <!-- Scenario 3-->
+	    <div class="col-3">
+	    	<div class="row">
+				<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 3</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">RP500</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Approximation</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">PCA</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_3/scenario3.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+	</div>   
+
+
+
+
+	<div class="row">
+		<div class="col-2"></div>
+		<!-- Scenario 4-->
+	    <div class="col-3">
+	    	<div class="row">	    		
+	    		<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 4</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">RP500</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Complete</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">PCA</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_4/scenario4.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+		<!-- Scenario 5-->
+	    <div class="col-3">
+	    	<div class="row">
+
+	    		<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 5</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">R784</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Approximation</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">t-SNE</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_5/scenario5.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+	   <!-- Scenario 6-->
+	    <div class="col-3">
+	    	<div class="row">
+				<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 6</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">R784</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Complete</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">t-SNE</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_6/scenario6.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+	</div>   
+
+
+
+
+
+
+	<div class="row">
+		<div class="col-2"></div>
+		<!-- Scenario 7-->
+	    <div class="col-3">
+	    	<div class="row">	    		
+	    		<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 7</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">R784</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Approximation</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">PCA</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_7/scenario7.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+		<!-- Scenario 8-->
+	    <div class="col-3">
+	    	<div class="row">
+
+	    		<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 8</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">R784</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Complete</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">PCA</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_8/scenario8.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+	   <!-- Scenario 9-->
+	    <div class="col-3">
+	    	<div class="row">
+				<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 9</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">RP500 (Fashion)</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">Approximation</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">t-SNE</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_9/scenario9.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+	</div> 
+
+
+
+
+	<div class="row">
+		<div class="col-2"></div>
+		<!-- Scenario 10-->
+	    <div class="col-3">
+	    	<div class="row">	    		
+	    		<div class="jumbotron text-center dark-3">
+		    		<div class="col-1">
+		    			<h1><span class="badge badge-default" style="color : #dddddd !important;">Scenario 10</span> </h1>	
+		    		</div>
+		    		<div class="col-2">		    			
+						<h2><span class="badge badge-warning">Representation:</span></h2>		
+						<h3><span class="badge badge-default">R784 (Fashion)</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Distance:</span></h2>		
+						<h3><span class="badge badge-default">COmplete</span> </h3>		   
+		    		</div>
+		    		<div class="col-2">
+						<h2><span class="badge badge-warning">Filter Function:</span></h2>		
+						<h3><span class="badge badge-default">t-SNE</span> </h3>		   
+		    		</div>
+		    		<hr>
+		    		<div class="col-2">
+						<button type="button" class="btn btn-dark" onclick="window.location = 'http://localhost:8000/scenario_10/scenario10.html';">View</button>
+		    		</div>
+		    		<div class="col-1"></div>
+	    		</div>
+	    	</div>
+
+	    </div>
+		
+	   
+	</div> 
+
+
+</div>
+
+
+
+
+
+
