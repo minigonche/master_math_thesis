@@ -1,3 +1,3 @@
 # Master's Thesis
 
-This repository is intended to hold the code and final document used for my Mathematics Master's degree, at Universidad de los Andes in 2017.
+This Branch adds UMAP and pPCA as projection functions over *RP^500*
